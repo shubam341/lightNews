@@ -1,29 +1,40 @@
 # Lighte-News Backend (Express + MongoDB + JWT + AI Personalization)
 
-A production-ready backend that serves a swipe-based, AI-personalized news feed. It combines:
+A production‑ready backend that serves a swipe‑based, AI‑personalized news feed. It combines:
 
 * **Express.js REST API**
 * **MongoDB + Mongoose**
 * **JWT authentication**
 * **NewsAPI live news fetching**
-* **Thompson Sampling AI** for per-user category recommendations
-* **Duplicate + pagination-safe article delivery**
+* **Thompson Sampling AI** for per‑user category recommendations
+* **Duplicate + pagination‑safe article delivery**
 
 ---
 
 ## ✅ Features
 
-| Feature                        | Endpoint                        | Auth? |
-| ------------------------------ | ------------------------------- | ----- |
-| Register user                  | `POST /api/auth/register`       | ❌     |
-| Login + get JWT                | `POST /api/auth/login`          | ❌     |
-| Initial feed (10 articles)     | `POST /api/init`                | ✅     |
-| Swipe like/dislike → get 5 new | `POST /api/swipe`               | ✅     |
-| Manual feed by category        | `GET /api/feed`                 | ✅     |
-| List available categories      | `GET /api/categories`           | ✅     |
-| View user stats + history      | `GET /api/user/:id/preferences` | ✅     |
-| Update category filters        | `PATCH /api/user/:id/filters`   | ✅     |
-| Health check                   | `GET /api/health`               | ❌     |
+| Feature                        | Method | Endpoint                    | Auth? |
+| ------------------------------ | ------ | --------------------------- | ----- |
+| Register new user              | POST   | `/api/auth/register`        | ❌     |
+| Login & receive JWT            | POST   | `/api/auth/login`           | ❌     |
+| Initial feed (10 articles)     | POST   | `/api/init`                 | ✅     |
+| Swipe like/dislike → get 5 new | POST   | `/api/swipe`                | ✅     |
+| Manual feed by category        | GET    | `/api/feed`                 | ✅     |
+| List available categories      | GET    | `/api/categories`           | ✅     |
+| View user stats + history      | GET    | `/api/user/:id/preferences` | ✅     |
+| Update category filters        | PATCH  | `/api/user/:id/filters`     | ✅     |
+| Health check                   | GET    | `/api/health`               | ❌     |
+
+---------|----------|-------|
+| Register user | `POST /api/auth/register` | ❌
+| Login + get JWT | `POST /api/auth/login` | ❌
+| Initial feed (10 articles) | `POST /api/init` | ✅
+| Swipe like/dislike → get 5 new | `POST /api/swipe` | ✅
+| Manual feed by category | `GET /api/feed` | ✅
+| List available categories | `GET /api/categories` | ✅
+| View user stats + history | `GET /api/user/:id/preferences` | ✅
+| Update category filters | `PATCH /api/user/:id/filters` | ✅
+| Health check | `GET /api/health` | ❌
 
 ---
 
@@ -86,7 +97,7 @@ node server.js
 
 ---
 
-## 📬 Example Requests (Postman-ready)
+## 📬 Example Requests (Postman‑ready)
 
 ### 1️⃣ Register
 
@@ -141,7 +152,7 @@ POST /api/swipe
 }
 ```
 
-### 5️⃣ Category-Specific Feed
+### 5️⃣ Category‑Specific Feed
 
 ```
 GET /api/feed?userId=sam&category=sports&pageSize=12
@@ -166,10 +177,10 @@ PATCH /api/user/sam/filters
 
 ## 🛠 Internal Optimizations
 
-✅ Per-category **pagination cursor** (no repeated page 1 fetches)
-✅ 200-item `seen[]` buffer prevents duplicate articles
+✅ Per‑category **pagination cursor** (no repeated page 1 fetches)
+✅ 200‑item `seen[]` buffer prevents duplicate articles
 ✅ Fallback always guarantees articles even if NewsAPI returns empty
-✅ Mixed-category fallback when diversify is true
+✅ Mixed‑category fallback when diversify is true
 
 ---
 
@@ -186,4 +197,4 @@ PATCH /api/user/sam/filters
 
 ### Author
 
-AI-assisted architecture + implementation by ChatGPT ⚡
+AI‑assisted architecture + implementation by ChatGPT ⚡
